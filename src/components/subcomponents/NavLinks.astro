@@ -1,0 +1,39 @@
+<script>
+  const currentLocation = window.location.href;
+  const menuItem = document.querySelectorAll('nav ul li a');
+  const menuLength = menuItem.length;
+  for (let i = 0; i < menuLength; i++) {
+    if (menuItem[i].href === currentLocation) {
+      menuItem[i].classList.add('active');
+    }
+  }
+</script>
+
+<nav class='nav-menu'>
+	<ul>
+		<li><a class='link' href='/'>Home</a></li>
+		<li><a class='link' href='/shop'>Shop</a></li>
+		<li><a class='link' href='/faq'>FAQ</a></li>
+		<li><a class='link' href='/cart'>Bag[0]</a></li>
+	</ul>
+</nav>
+
+<style>
+	.active {
+		text-decoration: underline;
+	}
+
+  a {
+    margin-bottom: 3px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+	@media (max-width: 768px) {
+		.nav-menu {
+			display: none;
+		}
+	}
+</style>

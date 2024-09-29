@@ -1,0 +1,58 @@
+---
+import NavLinks from './subcomponents/NavLinks.astro'
+---
+
+<header>
+	<div class='logo-container'>
+		<a href='/'>
+			<h1 class='logo'>Brillaire</h1>
+		</a>
+		<span style='font-size: 0.7rem'>Have a great time.</span>
+		<span style='font-size: 0.7rem'>Free shipping over 275$ CAD</span>
+	</div>
+	<NavLinks />
+	<div class='cart-container'>
+		<a href='/'>
+			<img src='icons/CartShopIcon.svg' alt='cart' height='20px' width='20px' />
+		</a>
+		<img src='images/burger.png' alt='burguer' height='10px' width='22px' />
+	</div>
+</header>
+
+<style>
+	header {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		padding: 2rem;
+		width: 100%;
+	}
+
+	.logo-container {
+		display: flex;
+		flex-direction: column;
+		gap: 0.2rem;
+	}
+
+	.logo {
+		font-size: 2rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		font-family: sans-serif;
+		letter-spacing: 1px;
+	}
+
+	.cart-container {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		cursor: pointer;
+		display: none;
+	}
+
+	@media (max-width: 768px) {
+		.cart-container {
+			display: flex;
+		}
+	}
+</style>
