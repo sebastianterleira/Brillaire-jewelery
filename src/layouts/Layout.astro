@@ -1,5 +1,6 @@
 ---
 import Header from "../components/Header.astro";
+import ElasticCustomCursor from "../components/ElasticCustomCursor.astro";
 import "../styles/reset.css";
 	
 interface Props {
@@ -22,5 +23,6 @@ const { title } = Astro.props;
 	<body>
 		<Header />
 		<slot />
+		<ElasticCustomCursor />
 	</body>
 </html>
