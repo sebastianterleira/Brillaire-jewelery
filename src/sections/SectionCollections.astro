@@ -16,6 +16,7 @@ const products = productsData.slice(0, 7)
 							class='product-image'
 							src={product.images.models_img.full}
 							alt={`Product ${product.name}`}
+							loading='eager'
 							inferSize={true}
 						/>
 					</a>
@@ -33,7 +34,7 @@ const products = productsData.slice(0, 7)
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		margin: 0 2rem;
+		margin: 0 1.875rem;
 	}
 
 	.subtitle {
