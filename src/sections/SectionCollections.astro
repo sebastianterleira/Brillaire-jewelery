@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets'
+import { productsData } from '../utils/data'
+
+const products = productsData.slice(0, 7)
+---
+
+<main>
+	<p class='subtitle'>First Collection[7]</p>
+	<section class='cards-container'>
+		{
+			products.map(product => (
+				<article class='card-product'>
+					<a href={`product/${product.url}`} aria-label={product.name}>
+						<Image
+							class='product-image'
+							src={product.images.models_img.full}
+							alt={`Product ${product.name}`}
+							inferSize={true}
+						/>
+					</a>
+					<a href={`product/${product.url}`} class='product-name'>
+						{product.name}
+					</a>
+				</article>
+			))
+		}
+	</section>
+</main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0 2rem;
+	}
+
+	.subtitle {
+		font-size: 0.7rem;
+		font-weight: 400;
+		margin-bottom: 10px;
+		color: #000;
+		margin-top: 13px;
+	}
+
+	.cards-container {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+		gap: 1rem;
+	}
+
+	img {
+		height: 0%;
+		width: 0%;
+		min-width: 100%;
+		min-height: 100%;
+	}
+
+	.card-product {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.product-image {
+		max-width: 258px;
+	}
+
+	.product-name {
+		font-size: 11px;
+		opacity: 1;
+		text-decoration: underline;
+		position: relative;
+		cursor: pointer;
+	}
+
+	.product-name:hover {
+		color: blue;
+	}
+</style>
