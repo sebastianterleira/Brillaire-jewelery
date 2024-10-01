@@ -15,7 +15,16 @@ import NavLinks from './subcomponents/NavLinks.astro'
 		<a href='/'>
 			<img src='icons/CartShopIcon.svg' alt='cart' height='20px' width='20px' />
 		</a>
-		<img src='images/burger.png' alt='burguer' height='10px' width='22px' />
+		<img id='burguer-icon' src='images/burger.png' alt='burguer' height='10px' width='22px' />
+		<nav class='nav-links' id='nav-links'>
+			<button class='close-btn' id='close-btn'>CLOSE</button>
+			<ul>
+				<li><a class='link' href='/'>HOME</a></li>
+				<li><a class='link' href='/shop'>SHOP</a></li>
+				<li><a class='link' href='/faq'>FAQ</a></li>
+				<li><a class='link' href='/cart'>BAG[0]</a></li>
+			</ul>
+		</nav>
 	</div>
 </header>
 
@@ -50,9 +59,58 @@ import NavLinks from './subcomponents/NavLinks.astro'
 		display: none;
 	}
 
+	.nav-active {
+		display: flex;
+	}
+
+	.close-btn {
+		text-align: left;
+    width: 100%;
+		font-size: 1rem;
+	}
+
+	.nav-links {
+		display: none;
+		flex-direction: column;
+		position: absolute;
+		top: 0;
+		right: 0;
+		background-color: #fff;
+		width: 100%;
+		padding: 30px 20px 20px;
+		height: 100%;
+		flex-direction: column;
+    align-items: flex-end;
+		font-size: 1rem;
+	}
+
+	ul {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	.link {
+		margin-bottom: 5px;
+	}
+
 	@media (max-width: 768px) {
 		.cart-container {
 			display: flex;
 		}
 	}
 </style>
+
+<script>
+	const burguerIcon = document.getElementById('burguer-icon');
+	const navLinks = document.getElementById('nav-links');
+	const closeBtn = document.getElementById('close-btn');
+
+	burguerIcon.addEventListener('click', () => {
+		navLinks.style.display = 'flex'
+	})
+
+	closeBtn.addEventListener('click', () => {
+		navLinks.style.display = 'none'
+	})
+</script>
