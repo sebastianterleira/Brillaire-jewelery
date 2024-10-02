@@ -6,10 +6,14 @@ export const productsData = [
     price: "$1290.00 CAD",
     description: "Handcrafted sculptural pebblestone bracelet in sterling silver.",
     sizes: {
-      small: "US 4 3/4",
-      medium: "US 5",
-      large: "US 7",
-      extraLarge: "US 9 1/4"
+      small: {
+        name: "US S - 19cm",
+        stock: false
+      },
+      medium: {
+        name: "US L - 25cm",
+        stock: false
+      },
     },
     images: {
       item_img: [
@@ -33,9 +37,18 @@ export const productsData = [
       "· Textured at surface.",
     ],
     sizes: {
-      small: "US 8 1/2",
-      medium: "US 10 1/4",
-      large: "US 13 1/4",
+      small: {
+        name: "US 8 1/2",
+        stock: true
+      },
+      medium: {
+        name: "US 10 1/4",
+        stock: true
+      },
+      large: {
+        name: "US 13 1/4",
+        stock: true
+      },
     },
     images: {
       item_img: [
@@ -62,10 +75,22 @@ export const productsData = [
       "· Textured at surface.",
     ],
     sizes: {
-      small: "US 4 3/4",
-      medium: "US 5",
-      large: "US 7",
-      extraLarge: "US 9 1/4"
+      small: {
+        name: "US 4 3/4",
+        stock: true
+      },
+      medium: {
+        name: "US 5",
+        stock: false
+      },
+      large: {
+        name: "US 7",
+        stock: true
+      },
+      extraLarge: {
+        name: "US 9 1/4",
+        stock: false
+      }
     },
     images: {
       item_img: [
@@ -91,10 +116,18 @@ export const productsData = [
       "· Logo engraved at inner band.",
     ],
     sizes: {
-      small: "US 4 3/4",
-      medium: "US 5",
-      large: "US 8",
-      extraLarge: "US 11 1/4"
+      small: {
+        name: "US 4 3/4",
+        stock: true
+      },
+      medium: {
+        name: "US 5",
+        stock: false
+      },
+      large: {
+        name: "US 8",
+        stock: false
+      },
     },
     images: {
       item_img: [
@@ -121,10 +154,22 @@ export const productsData = [
       "· Textured at surface.",
     ],
     sizes: {
-      small: "US 3 3/4",
-      medium: "US 4",
-      large: "US 6",
-      extraLarge: "US 9 1/4"
+      small: {
+        name: "US 3 3/4",
+        stock: false
+      },
+      medium: {
+        name: "US 4",
+        stock: true
+      },
+      large: {
+        name: "US 6",
+        stock: false
+      },
+      extraLarge: {
+        name: "US 9 1/4",
+        stock: true
+      }
     },
     images: {
       item_img: [
@@ -151,10 +196,22 @@ export const productsData = [
       "· Textured at surface.",
     ],
     sizes: {
-      small: "US 4 3/4",
-      medium: "US 5",
-      large: "US 6",
-      extraLarge: "US 11 1/4"
+      small: {
+        name: "US 4 3/4",
+        stock: false
+      },
+      medium: {
+        name: "US 5",
+        stock: false
+      },
+      medium: {
+        name: "US 6",
+        stock: false
+      },
+      extraLarge: {
+        name: "US 11 1/4",
+        stock: false
+      }
     },
     images: {
       item_img: [
@@ -180,10 +237,22 @@ export const productsData = [
       "· Logo engraved at inner band.",
     ],
     sizes: {
-      small: "US 3 3/4",
-      medium: "US 4",
-      large: "US 7 1/4",
-      extraLarge: "US 12 1/4"
+      small: {
+        name: "US 4 3/4",
+        stock: true
+      },
+      medium: {
+        name: "US 4",
+        stock: true
+      },
+      large: {
+        name: "US 7 1/4",
+        stock: false
+      },
+      extraLarge: {
+        name: "US 12 1/4",
+        stock: false
+      }
     },
     images: {
       item_img: [
@@ -204,12 +273,6 @@ export const productsData = [
     name: "Damaged Rosary",
     url: "damaged-rosary",
     price: "$460.00 CAD",
-    sizes: {
-      small: "US 4 3/4",
-      medium: "US 5",
-      large: "US 7",
-      extraLarge: "US 9 1/4"
-    },
     images: {
       item_img: [
         "https://www.jovier.ca/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0597%2F2793%2F7588%2Ffiles%2FIMG_1578-Edit.png%3Fv%3D1689531227&w=1920&q=75",
@@ -217,7 +280,8 @@ export const productsData = [
         "https://www.jovier.ca/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0597%2F2793%2F7588%2Ffiles%2FIMG_1555-Edit.png%3Fv%3D1689531226&w=1920&q=75"
       ],
       models_img: {
-        zoom: "https://www.jovier.ca/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0597%2F2793%2F7588%2Ffiles%2FIMG_1536.png%3Fv%3D1689531226&w=1920&q=75"
+        full: "https://www.jovier.ca/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0597%2F2793%2F7588%2Ffiles%2FIMG_1536.png%3Fv%3D1689531226&w=1920&q=75",
+        zoom: "https://www.jovier.ca/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0597%2F2793%2F7588%2Ffiles%2FIMG_1555-Edit.png%3Fv%3D1689531226&w=1920&q=75"
       }
     }
   },
