@@ -1,0 +1,204 @@
+---
+import { Image } from 'astro:assets'
+import { productsData } from '../utils/data'
+
+console.log(productsData)
+---
+
+<main>
+	<p class='subtitle'>All[{productsData.length}]</p>
+	<section class='cards-container'>
+		{
+			productsData.map(product => (
+				<article class='card-product'>
+					<a href={`product/${product.url}`} aria-label={product.name} class='item-container'>
+						<div class='image-holder' style="display: block;">
+							<Image
+                class="default-image"
+								src={product.images.item_img[0]}
+								alt={`Product ${product.name}`}
+								loading='eager'
+								inferSize={true}
+							/>
+              <Image 
+                class="zoom-image"
+                src={product.images.models_img.zoom}
+                alt={`Product ${product.name}`}
+                loading='eager'
+                inferSize={true}
+              />
+						</div>
+					</a>
+					<div class='product-info'>
+						<div class='product-info-header'>
+							<a href={`product/${product.url}`} class='product-name'>
+								{product.name}
+							</a>
+							<div class='product-sizes'>
+								{product.sizes ? (
+									Object.values(product.sizes).map(size => (
+										<p class={`item-size ${size.stock ? '' : 'no-stock'}`}>
+                      {size.name.replace('US', '').trim()}
+                    </p>
+									))
+								) : (
+									<p class="no-stock">Custom Order</p>
+								)}
+							</div>
+						</div>
+						<div>
+							<p class='product-price'>{product.price}</p>
+						</div>
+					</div>
+				</article>
+			))
+		}
+	</section>
+</main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0 1.875rem;
+	}
+
+	.subtitle {
+		margin-bottom: 20px;
+		margin-top: 20px;
+		font-size: 1rem;
+	}
+
+	.cards-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 40px;
+		margin-bottom: 120px;
+	}
+
+	.card-product {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 30px;
+	}
+
+	.item-container {
+		width: 100%;
+		display: block;
+		position: relative;
+		background-color: #ebebeb;
+		cursor: pointer;
+	}
+
+	.default-image {
+		height: 0%;
+		width: 0%;
+		min-width: 100%;
+		min-height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+
+  .zoom-image {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+    height: 0%;
+		width: 0%;
+		min-width: 100%;
+		min-height: 100%;
+	}
+
+	.image-holder {
+		position: relative;
+	}
+
+	.product-image {
+		max-width: 258px;
+	}
+
+	.product-info {
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		justify-content: center;
+		margin-top: 20px;
+	}
+
+	.product-info-header {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+
+	.product-name {
+		font-size: 11px;
+	}
+
+	.product-name:hover {
+		text-decoration: underline;
+	}
+
+	.product-price {
+		font-size: 11px;
+	}
+
+	.product-sizes {
+		display: flex;
+		gap: 10px;
+	}
+  
+  .item-size {
+    font-size: 11px;
+  }
+
+  .no-stock {
+    color: #c5bbbb;
+  }
+
+	.item-container:hover .default-image {
+		display: none;
+	}
+
+	.item-container:hover .zoom-image {
+		display: block;
+	}
+
+  @media (min-width: 800px) {
+    .card-product {
+      width: calc(50% - 20px);
+    }
+
+    .image-holder {
+      height: 400px;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .card-product {
+      width: calc(33% - 23px);
+    }
+
+    .image-holder {
+      height: 33vw;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .cards-container {
+      margin-bottom: 70px;
+    }
+
+    .card-product {
+      width: 100%;
+    }
+
+    .image-holder {
+      height: 100vw;
+    }
+  }
+</style>
