@@ -11,7 +11,7 @@ console.log(productsData)
 		{
 			productsData.map(product => (
 				<article class='card-product'>
-					<a href={`product/${product.url}`} aria-label={product.name} class='item-container'>
+					<a href={`shop/${product.url}`} aria-label={product.name} class='item-container'>
 						<div class='image-holder' style="display: block;">
 							<Image
                 class="default-image"
@@ -31,7 +31,7 @@ console.log(productsData)
 					</a>
 					<div class='product-info'>
 						<div class='product-info-header'>
-							<a href={`product/${product.url}`} class='product-name'>
+							<a href={`shop/${product.url}`} class='product-name'>
 								{product.name}
 							</a>
 							<div class='product-sizes'>

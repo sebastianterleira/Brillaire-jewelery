@@ -11,7 +11,7 @@ const products = productsData.slice(0, 7)
 		{
 			products.map(product => (
 				<article class='card-product'>
-					<a href={`product/${product.url}`} aria-label={product.name}>
+					<a href={`shop/${product.url}`} aria-label={product.name}>
 						<Image
 							class='product-image'
 							src={product.images.models_img.full}
@@ -20,7 +20,7 @@ const products = productsData.slice(0, 7)
 							inferSize={true}
 						/>
 					</a>
-					<a href={`product/${product.url}`} class='product-name'>
+					<a href={`shop/${product.url}`} class='product-name'>
 						{product.name}
 					</a>
 				</article>
