@@ -1,0 +1,233 @@
+---
+import { Image } from 'astro:assets'
+const { productData } = Astro.props
+---
+
+<main>
+	<section>
+		<div class='product-body'>
+			<div class='product-title'>
+				<p class='desktop-header'><a class='shop-link' href='/shop'>Shop[8]</a>{' < Organic Ring'}</p>
+			</div>
+			<p class='product-name'>{productData.name}</p>
+			<p class='product-price'>{productData.price}</p>
+			<div class='variants-container'>
+				<div class='custom-select'>
+					<select>
+						<option disabled selected>Select a Size</option>
+						{
+							productData.sizes ? (
+								Object.values(productData.sizes).map((size, index) => (
+									<option value={index} disabled={!size.stock}>
+										{size.stock ? size.name : `${size.name} - SOLD OUT`}
+									</option>
+								))
+							) : (
+								<option disabled>US CUSTOM ORDER - SOLD OUT</option>
+							)
+						}
+					</select>
+					<img src='/icons/down-arrow.png' alt='down arrow' />
+				</div>
+				<p class='submit'>Add to Bag</p>
+			</div>
+			<p class='message'>Item already in cart</p>
+			{
+				productData.sizes ? (
+					<div class='product-info'>
+						<h2 class='product-description'>{productData.description}</h2>
+						<span>&nbsp</span>
+						{productData.details ? productData.details.map(detail => <p class='product-details'>{detail}</p>) : ''}
+						<span>&nbsp</span>
+						<p class='product-details'>Color: Grey</p>
+						<p class='product-details'>925 sterling silver.</p>
+						<p class='product-details'>Made in Montreal.</p>
+						<span>&nbsp</span>
+						<p class='product-details'>{productData.model}</p>
+					</div>
+				) : (
+					<p class='contact-order'>Contact for order.</p>
+				)
+			}
+		</div>
+		<div class='product-images'>
+			{
+				productData.images.item_img.map(image => (
+					<span class='images-container'>
+						<Image src={image} alt={productData.name} inferSize={true}/>
+					</span>
+				))
+			}
+			{
+				Object.values(productData.images.models_img)
+					.reverse()
+					.map(image => (
+						<span class='images-container'>
+							<Image src={image} alt={productData.name} inferSize={true}/>
+						</span>
+					))
+			}
+		</div>
+	</section>
+</main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0 1.875rem;
+	}
+
+	section {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		padding: 0 0.5rem;
+	}
+
+	.product-body {
+		width: 550px;
+		position: sticky;
+		background-color: white;
+		padding: 1rem;
+		display: flex;
+		top: 140px;
+		transform: translateY(100px);
+		flex-direction: column;
+	}
+
+	.product-images {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		width: 100%;
+		height: auto;
+		margin-bottom: 10vw;
+	}
+
+	.images-container {
+		width: 100%;
+		height: 800px;
+		margin-top: 50px;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	.desktop-header {
+		display: flex;
+		font-size: 12px;
+		font-family: IBM Plex Mono, monospace;
+		margin-bottom: 30px;
+	}
+
+	.shop-link {
+		margin-right: 5px;
+	}
+
+	.shop-link:hover {
+		text-decoration: underline;
+	}
+
+	.product-name {
+		font-size: 1.25rem;
+		font-family: Merriweather, serif;
+	}
+
+	.product-price {
+		font-size: 13px;
+		margin-top: 5px;
+		font-family: Merriweather, serif;
+	}
+
+	.variants-container {
+		display: flex;
+		margin-top: 25px;
+		align-items: center;
+	}
+
+	.custom-select {
+		border: 1px solid #373737;
+		width: 200px;
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+	}
+
+	select {
+		-webkit-appearance: none;
+		border-radius: 0;
+		border: none;
+		height: 100%;
+		width: 100%;
+		font-size: 11px;
+		text-transform: uppercase;
+		background-color: #fff;
+		color: #000;
+		height: 25px;
+		padding-left: 5px;
+	}
+
+	option {
+		color: #000;
+	}
+
+	select:focus {
+		outline: none;
+	}
+
+	.custom-select img {
+		left: 190px;
+		width: 10px;
+		pointer-events: none;
+		position: absolute;
+	}
+
+	.submit {
+		font-size: 11px;
+		text-transform: uppercase;
+		font-family: IBM Plex Mono, monospace;
+		margin-left: 10px;
+		background-color: #373737;
+		padding: 7px 12px;
+		color: #fff;
+		cursor: pointer;
+	}
+
+	.message {
+		opacity: 0;
+		text-transform: uppercase;
+		margin-top: 10px;
+		font-size: 12px;
+		font-family: IBM Plex Mono, monospace;
+	}
+
+	.active {
+		opacity: 1;
+	}
+
+	.product-info {
+		margin-top: 10px;
+		margin-bottom: 200px;
+	}
+
+	.product-description {
+		font-size: 12px;
+		font-family: IBM Plex Mono, monospace;
+	}
+
+	.product-details {
+		font-size: 12px;
+		font-family: IBM Plex Mono, monospace;
+	}
+
+	.contact-order {
+		margin-top: 10px;
+		margin-bottom: 150px;
+    font-size: 14px;
+	}
+</style>

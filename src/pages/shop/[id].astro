@@ -1,6 +1,7 @@
 ---
-import { productsData } from "../../utils/data";
 import Layout from "../../layouts/Layout.astro";
+import SectionProduct from "../../sections/SectionProduct.astro";
+import { productsData } from "../../utils/data";
 
 export function getStaticPaths() {
   return productsData.map((product) => ({
@@ -10,13 +11,9 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-
-// export const prerender = true
 ---
 
 <Layout title={`brillaire  /${product.url}`}>
-  <main>
-    <h1>{product.name}</h1>
-  </main>
+  <SectionProduct productData={product}/>
 </Layout>
 
