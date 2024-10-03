@@ -5,6 +5,7 @@ export const productsData = [
     url: "pebblestone-bracelet",
     price: "$1290.00 CAD",
     description: "Handcrafted sculptural pebblestone bracelet in sterling silver.",
+    model: "Model is 5ft4 and wears size S (7 1/4 inches).",
     sizes: {
       small: {
         name: "US S - 19cm",
@@ -32,6 +33,7 @@ export const productsData = [
     url: "drippy-ring",
     price: "$225.00 CAD",
     description: `Handcrafted sculptural band ring in sterling silver.`,
+    model: "Model is 6ft3 and wears size 13 1/4.",
     details: [
       "· Logo engraved at inner band.",
       "· Textured at surface.",
@@ -70,6 +72,7 @@ export const productsData = [
     url: "organic-ring",
     price: "$270.00 CAD",
     description: "Handcrafted sculptural band ring in sterling silver.",
+    model: "Model is 6ft3 and wears size 11 3/4.",
     details: [
       "· Logo engraved at inner band.",
       "· Textured at surface.",
@@ -112,6 +115,7 @@ export const productsData = [
     url: "small-pirate-ring",
     price: "$270.00 CAD",
     description: "Handcrafted signet ring in sterling silver.",
+    model: "Model is 5ft4 and wears size 6 3/4.",
     details: [
       "· Logo engraved at inner band.",
     ],
@@ -149,6 +153,7 @@ export const productsData = [
     url: "battle-ring",
     price: "$200.00 CAD",
     description: "Handcrafted signet ring in sterling silver.",
+    model: "Model is 5ft7 and wears size 6 3/4.",
     details: [
       "· Logo engraved at inner band.",
       "· Textured at surface.",
@@ -191,6 +196,7 @@ export const productsData = [
     url: "level-ring",
     price: "$250.00 CAD",
     description: "Handcrafted sculptural signet ring in sterling silver.",
+    model: "Model is 5ft11 and wears size 6 3/4.",
     details: [
       "· Logo engraved at inner band.",
       "· Textured at surface.",
@@ -233,6 +239,7 @@ export const productsData = [
     url: "big-pirate-ring",
     price: "$290.00 CAD",
     description: "Handcrafted signet ring in sterling silver.",
+    model: "Model is 5ft4 and wears size 3.",
     details: [
       "· Logo engraved at inner band.",
     ],
