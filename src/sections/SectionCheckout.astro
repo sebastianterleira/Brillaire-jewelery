@@ -1,0 +1,162 @@
+---
+import { Image } from 'astro:assets'
+import { productsData } from '../utils/data'
+---
+
+<main>
+	<section>
+		<div class='cart-items-container'>
+			<h2>Your Bag[1]</h2>
+			<div class='cart-item'>
+				<div class='image-container'>
+					<a href='shop/pebblestone-bracelet' aria-label={productsData[0].name}>
+						<Image
+							src={productsData[0].images.item_img[0]}
+							alt={productsData[0].name}
+							inferSize={true}
+							loading='eager'
+						/>
+					</a>
+				</div>
+				<div class='item-body'>
+					<div class='item-header'>
+						<a href='shop/pebblestone-bracelet' class='item-name'>Pebblestone Bracelet</a>
+						<p>1290.00CAD</p>
+					</div>
+					<div class='item-options-container'>
+						<div class='item-options'>
+							<p>Size: 7</p>
+							<p style='margin-top: 5px;'>Quantity: 1</p>
+						</div>
+						<p class='remove'>remove</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='checkout-container'>
+			<div class='subtotal'>
+				<p style='font-size: 12px;'>Subtotal</p>
+				<p style='font-size: 12px;'>225 CAD</p>
+			</div>
+			<div class='shipping'>
+				<p style='font-size: 12px;'>Shipping</p>
+				<p style='font-size: 12px;'>Calculated at checkout</p>
+			</div>
+			<p class='checkout'>CHECKOUT</p>
+		</div>
+	</section>
+</main>
+
+<style>
+	main {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0 1.875rem;
+	}
+
+	section {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 80px;
+		min-height: 100vh;
+		padding: 0 1rem;
+	}
+
+	.cart-items-container {
+		font-size: 12px;
+		margin-bottom: 50px;
+	}
+
+	.cart-items-container h2 {
+		font-size: 12px;
+	}
+
+	.cart-item {
+		display: flex;
+		align-items: flex-start;
+		padding-top: 0;
+		margin-top: 30px;
+		padding-bottom: 35px;
+		border-bottom: 1px solid #9d9d9d;
+	}
+
+	.image-container {
+		width: 150px;
+		height: 110px;
+		position: relative;
+		background-color: #ebebeb;
+		cursor: pointer;
+	}
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	.item-body {
+		display: flex;
+		flex-direction: column;
+		margin-left: 20px;
+		width: 35vw;
+		max-width: 500px;
+	}
+
+	.item-header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.item-options-container {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 38px;
+	}
+
+	.item-options {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+
+	.item-name:hover {
+		text-decoration: underline;
+	}
+
+	.remove {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	.checkout-container {
+		display: flex;
+		flex-direction: column;
+		text-transform: uppercase;
+		width: 30vw;
+		max-width: 450px;
+	}
+
+	.subtotal,
+	.shipping {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		margin-bottom: 5px;
+	}
+
+	.checkout {
+		color: #fff;
+		padding: 10px 0;
+		text-align: center;
+		cursor: pointer;
+		width: 100%;
+		background-color: #373737;
+		margin-top: 15px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 12px;
+	}
+</style>
