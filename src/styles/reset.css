@@ -187,8 +187,3 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: monospace;
 }
-
-html,
-body {
-  overflow-x: hidden;
-}
