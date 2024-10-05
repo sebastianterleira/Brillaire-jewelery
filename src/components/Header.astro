@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets'
+import CartIcon from "../assets/icons/CartShopIcon.svg"
+import BurgerImage from "../assets/images/burger.png"
 import NavLinks from './subcomponents/NavLinks.astro'
 ---
 
@@ -13,9 +16,9 @@ import NavLinks from './subcomponents/NavLinks.astro'
 	<NavLinks />
 	<div class='cart-container'>
 		<a href='/'>
-			<img src='icons/CartShopIcon.svg' alt='cart' height='20px' width='20px' />
+			<Image src={CartIcon} alt='cart' width="20px" height="20px" />
 		</a>
-		<img id='burguer-icon' src='images/burger.png' alt='burguer' height='10px' width='22px' />
+		<Image id='burguer-icon' src={BurgerImage} alt='burguer' width='22px' height='10px' />
 		<nav class='nav-links' id='nav-links'>
 			<button class='close-btn' id='close-btn'>CLOSE</button>
 			<ul>
@@ -108,10 +111,12 @@ import NavLinks from './subcomponents/NavLinks.astro'
 	const closeBtn = document.getElementById('close-btn');
 
 	burguerIcon.addEventListener('click', () => {
+		document.body.style.overflow = 'hidden'
 		navLinks.style.display = 'flex'
 	})
 
 	closeBtn.addEventListener('click', () => {
+		document.body.style.overflow = 'auto'
 		navLinks.style.display = 'none'
 	})
 </script>
