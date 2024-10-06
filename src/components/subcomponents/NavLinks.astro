@@ -1,36 +1,42 @@
+---
+import NavLinkBag from './NavLinkBag.jsx'
+---
+
 <script>
-  const currentLocation = window.location.href;
-  const menuItem = document.querySelectorAll('nav ul li a');
-  const menuLength = menuItem.length;
-  for (let i = 0; i < menuLength; i++) {
-    if (menuItem[i].href === currentLocation) {
-      menuItem[i].classList.add('active');
-    }
-  }
+	const currentLocation = window.location.href
+	const menuItem = document.querySelectorAll('nav ul li a')
+	const menuLength = menuItem.length
+	for (let i = 0; i < menuLength; i++) {
+		if (menuItem[i].href === currentLocation) {
+			menuItem[i].classList.add('active-nav')
+		}
+	}
 </script>
 
 <nav class='nav-menu'>
 	<ul>
-		<li><a class='link' href='/'>Home</a></li>
-		<li><a class='link' href='/shop'>Shop</a></li>
-		<li><a class='link' href='/faq'>FAQ</a></li>
-		<li><a class='link' href='/cart'>Bag[0]</a></li>
+		<li><a class='nav-link' href='/'>Home</a></li>
+		<li><a class='nav-link' href='/shop'>Shop</a></li>
+		<li><a class='nav-link' href='/faq'>FAQ</a></li>
+		<NavLinkBag client:load />
 	</ul>
 </nav>
 
-<style>
-	.active {
+<style is:global>
+	.active-nav {
 		text-decoration: underline;
 	}
 
-  a {
-    margin-bottom: 3px;
-  }
+	.nav-link {
+		margin-bottom: 3px;
+	}
 
-  a:hover {
-    text-decoration: underline;
-  }
+	.nav-link:hover {
+		text-decoration: underline;
+	}
+</style>
 
+<style>
 	@media (max-width: 768px) {
 		.nav-menu {
 			display: none;
