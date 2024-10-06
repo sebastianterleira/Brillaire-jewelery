@@ -1,5 +1,9 @@
 ---
 import { Image } from 'astro:assets'
+
+import { productsData } from '../utils/data'
+import DownArrowIcon from '../assets/icons/down-arrow.png'
+import SelectComponent from '../components/SelectComponent.jsx'
 const { productData } = Astro.props
 ---
 
@@ -7,33 +11,21 @@ const { productData } = Astro.props
 	<section>
 		<div class='product-body'>
 			<div class='product-title'>
-				<p class='desktop-header'><a class='shop-link' href='/shop'>Shop[8]</a>{' < Organic Ring'}</p>
+				<p class='desktop-header'>
+					<a class='shop-link' href='/shop'>Shop[{productsData.length}]</a>{`< ${productData.name}`}
+				</p>
 			</div>
 			<p class='product-name'>{productData.name}</p>
 			<p class='product-price'>{productData.price}</p>
 			<div class='variants-container'>
-				<div class='custom-select'>
-					<select>
-						<option disabled selected>Select a Size</option>
-						{
-							productData.sizes ? (
-								Object.values(productData.sizes).map((size, index) => (
-									<option value={index} disabled={!size.stock}>
-										{size.stock ? size.name : `${size.name} - SOLD OUT`}
-									</option>
-								))
-							) : (
-								<option disabled>US CUSTOM ORDER - SOLD OUT</option>
-							)
-						}
-					</select>
-					<img src='/icons/down-arrow.png' alt='down arrow' />
-				</div>
-				<p class='submit'>Add to Bag</p>
+				<SelectComponent productData={productData} client:load>
+					<Image class='down-arrow__icon' src={DownArrowIcon} alt='down arrow' loading='eager' />
+				</SelectComponent>
 			</div>
-			<p class='message'>Item already in cart</p>
 			{
-				productData.sizes ? (
+				productData.custom ? (
+					<p class='contact-order'>Contact for order.</p>
+				) : (
 					<div class='product-info'>
 						<h2 class='product-description'>{productData.description}</h2>
 						<span>&nbsp</span>
@@ -45,25 +37,23 @@ const { productData } = Astro.props
 						<span>&nbsp</span>
 						<p class='product-details'>{productData.model}</p>
 					</div>
-				) : (
-					<p class='contact-order'>Contact for order.</p>
 				)
 			}
 		</div>
 		<div class='product-images'>
 			{
-				productData.images.item_img.map(image => (
+				productData.images.item_img.map((image: string) => (
 					<span class='images-container'>
-						<Image src={image} alt={productData.name} inferSize={true}/>
+						<Image src={image} alt={productData.name} inferSize={true} />
 					</span>
 				))
 			}
 			{
 				Object.values(productData.images.models_img)
 					.reverse()
-					.map(image => (
+					.map((image: string) => (
 						<span class='images-container'>
-							<Image src={image} alt={productData.name} inferSize={true}/>
+							<Image src={image} alt={productData.name} inferSize={true} />
 						</span>
 					))
 			}
@@ -111,6 +101,13 @@ const { productData } = Astro.props
 		margin-top: 50px;
 	}
 
+	.down-arrow__icon {
+		left: 190px;
+		width: 10px;
+		pointer-events: none;
+		position: absolute;
+	}
+
 	img {
 		width: 100%;
 		height: 100%;
@@ -145,64 +142,12 @@ const { productData } = Astro.props
 
 	.variants-container {
 		display: flex;
+		flex-direction: column;
 		margin-top: 25px;
-		align-items: center;
-	}
-
-	.custom-select {
-		border: 1px solid #373737;
-		width: 200px;
-		display: flex;
-		align-items: center;
-		cursor: pointer;
-	}
-
-	select {
-		-webkit-appearance: none;
-		border-radius: 0;
-		border: none;
-		height: 100%;
-		width: 100%;
-		font-size: 11px;
-		text-transform: uppercase;
-		background-color: #fff;
-		color: #000;
-		height: 25px;
-		padding-left: 5px;
 	}
 
 	option {
 		color: #000;
-	}
-
-	select:focus {
-		outline: none;
-	}
-
-	.custom-select img {
-		left: 190px;
-		width: 10px;
-		pointer-events: none;
-		position: absolute;
-	}
-
-	.submit {
-		font-size: 11px;
-		text-transform: uppercase;
-		font-family: IBM Plex Mono, monospace;
-		margin-left: 10px;
-		background-color: #373737;
-		padding: 7px 12px;
-		color: #fff;
-		cursor: pointer;
-	}
-
-	.message {
-		opacity: 0;
-		text-transform: uppercase;
-		margin-top: 10px;
-		font-size: 12px;
-		font-family: IBM Plex Mono, monospace;
 	}
 
 	.active {
@@ -227,6 +172,6 @@ const { productData } = Astro.props
 	.contact-order {
 		margin-top: 10px;
 		margin-bottom: 150px;
-    font-size: 14px;
+		font-size: 14px;
 	}
 </style>
