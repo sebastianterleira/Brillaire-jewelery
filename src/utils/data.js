@@ -1,3 +1,5 @@
+import { custom } from "astro:schema";
+
 export const productsData = [
   {
     id: 1,
@@ -280,6 +282,13 @@ export const productsData = [
     name: "Damaged Rosary",
     url: "damaged-rosary",
     price: "$460.00 CAD",
+    custom: true,
+    sizes: {
+      small: {
+        name: "US CUSTOM ORDER",
+        stock: false
+      },
+    },
     images: {
       item_img: [
         "https://www.jovier.ca/_next/image?url=https%3A%2F%2Fcdn.shopify.com%2Fs%2Ffiles%2F1%2F0597%2F2793%2F7588%2Ffiles%2FIMG_1578-Edit.png%3Fv%3D1689531227&w=1920&q=75",
