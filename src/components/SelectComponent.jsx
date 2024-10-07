@@ -22,9 +22,11 @@ export default function SelectComponent({ productData, children }) {
 		if (alreadyInCart) {
 			setStatus(`SIZE ${selectedSize} IS ALREADY IN THE CART`)
 		} else {
+			const uniqueId = `${productData.id}-${selectedSize}`;
 			addToCart({
 				...productData,
 				selectedSize,
+				uniqueId
 			})
 			setStatus(`SIZE ${selectedSize} ADDED TO BAG`)
 		}
