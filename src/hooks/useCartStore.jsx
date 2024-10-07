@@ -15,9 +15,9 @@ export const useCartStore = create((set) => ({
     });
   },
 
-  removeFromCart: (productId) => {
+  removeFromCart: (uniqueId) => {
     set((state) => {
-      const updatedCart = state.cart.filter(item => item.id !== productId);
+      const updatedCart = state.cart.filter(item => item.uniqueId !== uniqueId);
       if (typeof window !== 'undefined') {
         localStorage.setItem('cart', JSON.stringify(updatedCart));
       }
