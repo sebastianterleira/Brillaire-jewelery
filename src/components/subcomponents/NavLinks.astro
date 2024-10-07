@@ -7,7 +7,7 @@ import NavLinkBag from './NavLinkBag.jsx'
 	const menuItem = document.querySelectorAll('nav ul li a')
 	const menuLength = menuItem.length
 	for (let i = 0; i < menuLength; i++) {
-		if (menuItem[i].href === currentLocation) {
+		if (menuItem[i].getAttribute('href') === currentLocation) {
 			menuItem[i].classList.add('active-nav')
 		}
 	}
