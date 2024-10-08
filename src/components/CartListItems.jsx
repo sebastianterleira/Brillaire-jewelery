@@ -12,7 +12,6 @@ export default function CartListItems() {
 	const cartItems = useCartStore(state => state.cart)
 	const removeItem = useCartStore(state => state.removeFromCart)
 	const [loading, setLoading] = useState(true)
-	console.log(cartItems)
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
