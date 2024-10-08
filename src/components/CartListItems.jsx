@@ -3,6 +3,11 @@ import { useState, useEffect } from 'react'
 import style from '../styles/cart-list-items-component.module.css'
 import { useCartStore } from '../hooks/useCartStore'
 
+const formatPrice = (price) => {
+  const cleanPrice = parseFloat(price.replace(/[^0-9.-]+/g, ''))
+  return `${cleanPrice.toFixed(2)} CAD`
+}
+
 export default function CartListItems() {
 	const cartItems = useCartStore(state => state.cart)
 	const removeItem = useCartStore(state => state.removeFromCart)
@@ -36,7 +41,7 @@ export default function CartListItems() {
 									<a href='shop/pebblestone-bracelet' className={style['item-name']} aria-label='back to shop'>
 										{item.name}
 									</a>
-									<p>1290.00CAD</p>
+									<p>{formatPrice(item.price)}</p>
 								</div>
 								<div className={style['item-options-container']}>
 									<div className={style['item-options']}>
