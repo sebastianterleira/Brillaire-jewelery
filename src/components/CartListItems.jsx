@@ -23,7 +23,7 @@ export default function CartListItems() {
 	}, [cartItems])
 
 	if (loading) {
-		return <p>Cargando...</p>
+		return <p style={{ marginTop: '2rem' }}>Cargando...</p>
 	} else {
 		return (
 			<div className={style['cart-items-container']}>
