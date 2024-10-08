@@ -1,14 +1,15 @@
 ---
 import CartListItems from '../components/CartListItems.jsx'
+import SubtotalBag from "../components/subcomponents/SubTotalBag.jsx"
 ---
 
 <main>
 	<section>
-		<CartListItems client:load/>
+		<CartListItems client:load />
 		<div class='checkout-container'>
 			<div class='subtotal'>
 				<p style='font-size: 12px;'>Subtotal</p>
-				<p style='font-size: 12px;'>225 CAD</p>
+				<SubtotalBag client:load/>
 			</div>
 			<div class='shipping'>
 				<p style='font-size: 12px;'>Shipping</p>
@@ -29,7 +30,7 @@ import CartListItems from '../components/CartListItems.jsx'
 
 	section {
 		display: flex;
-    flex-direction: row;
+		flex-direction: row;
 		justify-content: space-between;
 		margin-top: 80px;
 		padding: 0 1rem;
@@ -79,14 +80,14 @@ import CartListItems from '../components/CartListItems.jsx'
 
 	@media (max-width: 800px) {
 		section {
-      flex-direction: column-reverse;
-      margin-top: 40px;
-      padding: 0 .5rem;
+			flex-direction: column-reverse;
+			margin-top: 40px;
+			padding: 0 0.5rem;
 		}
 
-    .checkout-container {
-      width: 100%;
-      max-width: 100%;
-    }
+		.checkout-container {
+			width: 100%;
+			max-width: 100%;
+		}
 	}
 </style>
