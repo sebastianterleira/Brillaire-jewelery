@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 
-import style from '../styles/cart-list-items-component.module.css'
-import { useCartStore } from '../hooks/useCartStore'
+import style from '../../styles/cart-list-items-component.module.css'
+import { useCartStore } from '../../hooks/useCartStore'
 
-const formatPrice = (price) => {
-  const cleanPrice = parseFloat(price.replace(/[^0-9.-]+/g, ''))
-  return `${cleanPrice.toFixed(2)} CAD`
+const formatPrice = price => {
+	const cleanPrice = parseFloat(price.replace(/[^0-9.-]+/g, ''))
+	return `${cleanPrice.toFixed(2)} CAD`
 }
 
 export default function CartListItems() {

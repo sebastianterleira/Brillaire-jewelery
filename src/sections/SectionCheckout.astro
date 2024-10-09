@@ -1,6 +1,6 @@
 ---
-import CartListItems from '../components/CartListItems.jsx'
-import SubtotalBag from "../components/subcomponents/SubTotalBag.jsx"
+import CartListItems from '../components/Cart/CartListItems.jsx'
+import SubtotalBag from '../components/Cart/SubTotalBag.jsx'
 ---
 
 <main>
@@ -9,7 +9,7 @@ import SubtotalBag from "../components/subcomponents/SubTotalBag.jsx"
 		<div class='checkout-container'>
 			<div class='subtotal'>
 				<p style='font-size: 12px;'>Subtotal</p>
-				<SubtotalBag client:load/>
+				<SubtotalBag client:load />
 			</div>
 			<div class='shipping'>
 				<p style='font-size: 12px;'>Shipping</p>

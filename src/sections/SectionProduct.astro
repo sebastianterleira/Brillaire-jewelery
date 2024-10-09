@@ -3,8 +3,8 @@ import { Image } from 'astro:assets'
 
 import { productsData } from '../utils/data'
 import DownArrowIcon from '../assets/icons/down-arrow.png'
-import SelectComponent from '../components/SelectComponent.jsx'
-import SlideImagesMovile from "../components/subcomponents/SlideImagesMovile.astro"
+import SelectComponent from '../components/Product/SelectComponent.jsx'
+import SlideImagesMovile from '../components/subcomponents/SlideImagesMovile.astro'
 const { productData } = Astro.props
 ---
 
@@ -179,7 +179,7 @@ const { productData } = Astro.props
 
 	@media (max-width: 900px) {
 		.product-body {
-			padding: .5rem;
+			padding: 0.5rem;
 			top: 200px;
 		}
 	}
@@ -203,5 +203,5 @@ const { productData } = Astro.props
 		.product-title {
 			display: none;
 		}
-	}	
+	}
 </style>
