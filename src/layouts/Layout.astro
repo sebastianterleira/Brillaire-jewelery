@@ -1,4 +1,6 @@
 ---
+import { SEO } from "astro-seo";
+
 import Header from "../components/Header/Header.astro";
 import Footer from "../components/Footer/Footer.astro";
 import ElasticCustomCursor from "../components/subcomponents/ElasticCustomCursor.astro";
@@ -15,11 +17,44 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<SEO
+		title={title}
+		description="Brillaire is a jewelery brand."
+		canonical="https://brillaire.vercel.app/"
+		openGraph={{
+			basic: {
+				title: "Brillaire",
+				type: "website",
+				url: "https://brillaire.vercel.app/",
+				image: "/banner-metatag.png",
+			},
+			image: {
+				alt: "Banner con el logo y nombre de Brillaire",
+				width: 1200,
+				height: 630,
+			},
+			optional: {
+				description: "Brillaire is a jewelery brand."
+			}
+		}}
+		twitter={{
+			title: "Brillaire",
+			description: "Brillaire is a jewelery brand.",
+			card: "summary_large_image",
+			image: "/banner-metatag.png",
+			imageAlt: "Banner con el logo y nombre de Brillaire"
+		}}
+		extend={{
+			link: [{ rel: "icon", type:"image/x-icon", href: "/favicon.svg" }],
+			meta: [
+				{ property: "twitter:url", content: "https://brillaire.vercel.app/" },
+				{ name: "viewport", content: "width=device-width" },
+				{ name: "theme-color", content: "#fff" }
+			]
+		}}
+	/>
 	</head>
 	<body>
 		<Header />
