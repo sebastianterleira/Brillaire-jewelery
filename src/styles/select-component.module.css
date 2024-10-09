@@ -48,7 +48,7 @@
 
 .container {
 	display: flex;
-	align-items: center;
+	align-items: center;	
 }
 
 .message {
@@ -58,4 +58,19 @@
 	font-family: IBM Plex Mono, monospace;
 	cursor: default;
 	color: #000;
+}
+
+@media (max-width: 390px) {
+	.container {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: .5rem;
+	}
+
+	.submit,
+	.submit-disabled {
+		margin: 0;
+		padding: 14px 16px;
+		font-size: 13px;
+	}
 }

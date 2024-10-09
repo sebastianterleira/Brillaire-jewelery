@@ -4,6 +4,7 @@ import { Image } from 'astro:assets'
 import { productsData } from '../utils/data'
 import DownArrowIcon from '../assets/icons/down-arrow.png'
 import SelectComponent from '../components/SelectComponent.jsx'
+import SlideImagesMovile from "../components/subcomponents/SlideImagesMovile.astro"
 const { productData } = Astro.props
 ---
 
@@ -40,6 +41,7 @@ const { productData } = Astro.props
 				)
 			}
 		</div>
+		<SlideImagesMovile productData={productData} />
 		<div class='product-images'>
 			{
 				productData.images.item_img.map((image: string) => (
@@ -174,4 +176,32 @@ const { productData } = Astro.props
 		margin-bottom: 150px;
 		font-size: 14px;
 	}
+
+	@media (max-width: 900px) {
+		.product-body {
+			padding: .5rem;
+			top: 200px;
+		}
+	}
+
+	@media (max-width: 560px) {
+		.product-body {
+			width: 100%;
+			top: 0;
+		}
+	}
+
+	@media (max-width: 800px) {
+		section {
+			flex-direction: column-reverse;
+		}
+
+		.product-images {
+			display: none;
+		}
+
+		.product-title {
+			display: none;
+		}
+	}	
 </style>
