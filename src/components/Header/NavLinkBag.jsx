@@ -25,12 +25,8 @@ export default function NavLinkBag() {
 	}, [cartItems])
 
 	return (
-		<>
-			<li>
-				<a id='navlink-bag' className='nav-link' href='/cart'>
-					Bag[{loading ? '...' : `${cartItems.length}`}]
-				</a>
-			</li>
-		</>
+		<a id='navlink-bag' className='nav-link' href='/cart'>
+			Bag[{loading ? '...' : `${cartItems.length}`}]
+		</a>
 	)
 }

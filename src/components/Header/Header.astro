@@ -22,12 +22,12 @@ import NavLinkBag from './NavLinkBag'
 		<Image id='burguer-icon' src={BurgerImage} alt='burguer' width='22' height='10' />
 		<nav class='nav-links' id='nav-links'>
 			<button class='close-btn' id='close-btn'>CLOSE</button>
-			<ul>
-				<li><a class='link' href='/'>HOME</a></li>
-				<li><a class='link' href='/shop'>SHOP</a></li>
-				<li><a class='link' href='/faq'>FAQ</a></li>
+			<div class='links-container'>
+				<a class='link' href='/'>HOME</a>
+				<a class='link' href='/shop'>SHOP</a>
+				<a class='link' href='/faq'>FAQ</a>
 				<NavLinkBag client:load />
-			</ul>
+			</div>
 		</nav>
 	</div>
 </header>
@@ -90,7 +90,7 @@ import NavLinkBag from './NavLinkBag'
 		z-index: 10;
 	}
 
-	ul {
+	.links-container {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-end;

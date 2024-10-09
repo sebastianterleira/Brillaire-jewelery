@@ -4,7 +4,7 @@ import NavLinkBag from './NavLinkBag.jsx'
 
 <script>
 	const currentLocation = window.location.href
-	const menuItem = document.querySelectorAll('nav ul li a')
+	const menuItem = document.querySelectorAll('nav div a')
 	const menuLength = menuItem.length
 	for (let i = 0; i < menuLength; i++) {
 		if (menuItem[i].getAttribute('href') === currentLocation) {
@@ -14,12 +14,12 @@ import NavLinkBag from './NavLinkBag.jsx'
 </script>
 
 <nav class='nav-menu'>
-	<ul>
-		<li><a class='nav-link' href='/'>Home</a></li>
-		<li><a class='nav-link' href='/shop'>Shop</a></li>
-		<li><a class='nav-link' href='/faq'>FAQ</a></li>
+	<div>
+		<a class='nav-link' href='/'>Home</a>
+		<a class='nav-link' href='/shop'>Shop</a>
+		<a class='nav-link' href='/faq'>FAQ</a>
 		<NavLinkBag client:load />
-	</ul>
+	</div>
 </nav>
 
 <style is:global>
