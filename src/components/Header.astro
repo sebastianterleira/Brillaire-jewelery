@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import CartIcon from "../assets/icons/CartShopIcon.svg"
 import BurgerImage from "../assets/images/burger.png"
 import NavLinks from './subcomponents/NavLinks.astro'
+import NavLinkBag from './subcomponents/NavLinkBag'
 ---
 
 <header>
@@ -25,7 +26,7 @@ import NavLinks from './subcomponents/NavLinks.astro'
 				<li><a class='link' href='/'>HOME</a></li>
 				<li><a class='link' href='/shop'>SHOP</a></li>
 				<li><a class='link' href='/faq'>FAQ</a></li>
-				<li><a class='link' href='/cart'>BAG[0]</a></li>
+				<NavLinkBag client:load />
 			</ul>
 		</nav>
 	</div>
@@ -86,6 +87,7 @@ import NavLinks from './subcomponents/NavLinks.astro'
 		flex-direction: column;
     align-items: flex-end;
 		font-size: 1rem;
+		z-index: 10;
 	}
 
 	ul {
