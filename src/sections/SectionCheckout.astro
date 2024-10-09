@@ -15,10 +15,21 @@ import SubtotalBag from '../components/Cart/SubTotalBag.jsx'
 				<p style='font-size: 12px;'>Shipping</p>
 				<p style='font-size: 12px;'>Calculated at checkout</p>
 			</div>
-			<p class='checkout'>CHECKOUT</p>
+			<p class='checkout' id='loadingButton'>CHECKOUT</p>
 		</div>
 	</section>
 </main>
+
+<script>
+	function showLoading() {
+		const button = document.getElementById('loadingButton') as HTMLButtonElement
+		button.disabled = true // Deshabilitar el botón para evitar múltiples clicks
+		button.textContent = 'Loading' // Cambia el texto a 'Loading'
+		button.classList.add('dots') // Añadir la clase con los puntos animados
+	}
+
+	document.getElementById('loadingButton').addEventListener('click', showLoading)
+</script>
 
 <style>
 	main {
@@ -63,6 +74,31 @@ import SubtotalBag from '../components/Cart/SubTotalBag.jsx'
 		padding-top: 10px;
 		padding-bottom: 10px;
 		font-size: 12px;
+	}
+
+	.dots::after {
+		content: '';
+		display: inline-block;
+		width: 1ch;
+		text-align: left;
+		animation: dots 1.5s steps(4, end) infinite;
+	}
+
+	@keyframes dots {
+		0%,
+		20% {
+			content: '';
+		}
+		40% {
+			content: '.';
+		}
+		60% {
+			content: '..';
+		}
+		80%,
+		100% {
+			content: '...';
+		}
 	}
 
 	@media screen and (min-width: 1000px) {
