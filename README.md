@@ -1,6 +1,6 @@
 # Brillaire 
 <div align="center">
- <img src="public/images/banner-metatag.png" >
+ <img src="public/banner-metatag.png" >
 </div>
 
 <!-- GETTING STARTED -->
