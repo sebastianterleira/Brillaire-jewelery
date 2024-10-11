@@ -52,6 +52,30 @@ import { productsData } from '../utils/data'
 	</section>
 </main>
 
+<script>
+	import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card-product');
+
+    cards.forEach(card => {
+      gsap.from(card, {
+        opacity: 0,
+        duration: 2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 90%',
+          toggleActions: 'play none none none',
+        },
+      });
+    });
+  });
+</script>
+
 <style>
 	main {
 		display: flex;
