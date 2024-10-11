@@ -13,7 +13,7 @@ Here are the steps to execute the project:
 1. Clone the repo
 
    ```sh
-   git clone git@github.com:sebastianterleira/WEBEX-STUDIO.git
+   git@github.com:sebastianterleira/Brillaire-jewelery.git
    ```
    
 2. Install NPM packages
