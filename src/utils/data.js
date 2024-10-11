@@ -50,16 +50,6 @@ import Damaged_3 from '../assets/images/Products/damaged-rosary/item-img/rosary_
 import Damaged_full from '../assets/images/Products/damaged-rosary/model-img/full.avif';
 import Damaged_zoom from '../assets/images/Products/damaged-rosary/model-img/zoom.avif';
 
-
-
-
-
-
-
-
-
-
-
 export const productsData = [
 	{
 		id: 1,
