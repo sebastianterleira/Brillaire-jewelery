@@ -1,6 +1,7 @@
 ---
-import { Image } from 'astro:assets'
 import { productsData } from '../utils/data'
+
+import CustomComponentImage from '../components/subcomponents/CustomComponentImage.astro'
 ---
 
 <main>
@@ -11,17 +12,15 @@ import { productsData } from '../utils/data'
 				<article class='card-product'>
 					<a href={`shop/${product.url}`} aria-label={product.name} class='item-container'>
 						<div class='image-holder' style="display: block;">
-							<Image
-                class="default-image"
+							<CustomComponentImage
+                className="default-image"
 								src={product.images.item_img[0]}
-								alt={`Product ${product.name}`}
-								inferSize={true}
+								altImage={`Product ${product.name}`}
 							/>
-              <Image 
-                class="zoom-image"
+              <CustomComponentImage 
+                className="zoom-image"
                 src={product.images.models_img.zoom}
-                alt={`Product ${product.name}`}
-                inferSize={true}
+                altImage={`Product ${product.name}`}
               />
 						</div>
 					</a>
@@ -76,6 +75,37 @@ import { productsData } from '../utils/data'
   });
 </script>
 
+<style is:global>
+	.default-image {
+		height: 0%;
+		width: 0%;
+		min-width: 100%;
+		min-height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+
+  .zoom-image {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+    height: 0%;
+		width: 0%;
+		min-width: 100%;
+		min-height: 100%;
+	}
+
+	.item-container:hover .default-image {
+		display: none;
+	}
+
+	.item-container:hover .zoom-image {
+		display: block;
+	}
+</style>
+
 <style>
 	main {
 		display: flex;
@@ -110,27 +140,6 @@ import { productsData } from '../utils/data'
 		position: relative;
 		background-color: #ebebeb;
 		cursor: pointer;
-	}
-
-	.default-image {
-		height: 0%;
-		width: 0%;
-		min-width: 100%;
-		min-height: 100%;
-		object-fit: contain;
-		display: block;
-	}
-
-  .zoom-image {
-		display: none;
-		position: absolute;
-		top: 0;
-		left: 0;
-		object-fit: cover;
-    height: 0%;
-		width: 0%;
-		min-width: 100%;
-		min-height: 100%;
 	}
 
 	.image-holder {
@@ -179,14 +188,6 @@ import { productsData } from '../utils/data'
   .no-stock {
     color: #c5bbbb;
   }
-
-	.item-container:hover .default-image {
-		display: none;
-	}
-
-	.item-container:hover .zoom-image {
-		display: block;
-	}
 
   @media (min-width: 800px) {
     .card-product {

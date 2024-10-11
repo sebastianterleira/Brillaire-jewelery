@@ -1,8 +1,8 @@
 ---
-import { Image } from 'astro:assets'
-import { productsData } from '../utils/data'
+import { productsData } from '../utils/data';
+import CustomComponentImage from '../components/subcomponents/CustomComponentImage.astro';
 
-const products = productsData.slice(0, 7)
+const products = productsData.slice(0, 7);
 ---
 
 <main>
@@ -12,12 +12,10 @@ const products = productsData.slice(0, 7)
 			products.map(product => (
 				<article class='card-product'>
 					<a href={`shop/${product.url}`} aria-label={product.name}>
-						<Image
-							class='product-image'
+						<CustomComponentImage
+							className='product-image'
 							src={product.images.models_img.full}
-							alt={`Product ${product.name}`}
-							loading='eager'
-							inferSize={true}
+							altImage={`Product ${product.name}`}
 						/>
 					</a>
 					<a href={`shop/${product.url}`} class='product-name'>
@@ -31,27 +29,37 @@ const products = productsData.slice(0, 7)
 
 <script>
 	import { gsap } from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-  gsap.registerPlugin(ScrollTrigger);
+	gsap.registerPlugin(ScrollTrigger);
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card-product');
+	document.addEventListener('DOMContentLoaded', () => {
+		const cards = document.querySelectorAll('.card-product');
 
-    cards.forEach(card => {
-      gsap.from(card, {
-        opacity: 0,
-        duration: 2,
-        ease: 'power2.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 90%',
-          toggleActions: 'play none none none',
-        },
-      });
-    });
-  });
+		cards.forEach(card => {
+			gsap.from(card, {
+				opacity: 0,
+				duration: 2,
+				ease: 'power2.out',
+				scrollTrigger: {
+					trigger: card,
+					start: 'top 90%',
+					toggleActions: 'play none none none',
+				},
+			});
+		});
+	});
 </script>
+
+<style is:global>
+	.product-image {
+		max-width: 258px;
+		height: 0%;
+		width: 0%;
+		min-width: 100%;
+		min-height: 100%;
+	}
+</style>
 
 <style>
 	main {
@@ -75,21 +83,10 @@ const products = productsData.slice(0, 7)
 		gap: 1rem;
 	}
 
-	img {
-		height: 0%;
-		width: 0%;
-		min-width: 100%;
-		min-height: 100%;
-	}
-
 	.card-product {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-	}
-
-	.product-image {
-		max-width: 258px;
 	}
 
 	.product-name {

@@ -1,0 +1,7 @@
+---
+import { Image } from 'astro:assets';
+
+const { src, altImage, className } = Astro.props;
+---
+
+<Image src={src} alt={altImage} class={className} inferSize={true} loading="eager"/>
