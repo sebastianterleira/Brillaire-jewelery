@@ -32,7 +32,7 @@ export default function CartListItems() {
 						<div className={style['cart-item']} key={index}>
 							<div className={style['image-container']}>
 								<a href={`shop/${item.url}`} aria-label={item.name}>
-									<img src={item.images.item_img[0]} alt={item.name} loading='eager' className={style['item-image']} />
+									<img src={item.images.item_img[0].src} alt={item.name} loading='eager' className={style['item-image']} />
 								</a>
 							</div>
 							<div className={style['item-body']}>
