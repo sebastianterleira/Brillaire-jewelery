@@ -59,8 +59,18 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Header />
-		<slot />
-		<Footer />
+		<div class="wrapper">
+			<slot />
+			<Footer />
+		</div>
 		<ElasticCustomCursor />
 	</body>
 </html>
+
+<style>
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+</style>
