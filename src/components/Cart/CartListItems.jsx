@@ -37,7 +37,7 @@ export default function CartListItems() {
 							</div>
 							<div className={style['item-body']}>
 								<div className={style['item-header']}>
-									<a href='shop/pebblestone-bracelet' className={style['item-name']} aria-label='back to shop'>
+									<a href={`shop/${item.url}`} className={style['item-name']} aria-label='back to shop'>
 										{item.name}
 									</a>
 									<p>{formatPrice(item.price)}</p>
