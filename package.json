@@ -19,7 +19,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "typescript": "^5.6.2",
-    "zustand": "^5.0.0-rc.2"
+    "zustand": "^5.0.0-rc.2",
+    "locomotive-scroll": "^5.0.0-beta.21"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.50.0",

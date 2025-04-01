@@ -1,11 +1,11 @@
 ---
-import { SEO } from "astro-seo";
+import { SEO } from 'astro-seo';
 
-import Header from "../components/Header/Header.astro";
-import Footer from "../components/Footer/Footer.astro";
-import ElasticCustomCursor from "../components/subcomponents/ElasticCustomCursor.astro";
-import "../styles/reset.css";
-	
+import Header from '../components/Header/Header.astro';
+import Footer from '../components/Footer/Footer.astro';
+import ElasticCustomCursor from '../components/subcomponents/ElasticCustomCursor.astro';
+import '../styles/reset.css';
+
 interface Props {
 	title: string;
 }
@@ -13,64 +13,69 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang='en'>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+		<meta name='generator' content={Astro.generator} />
+		<link rel='sitemap' href='/sitemap-index.xml' />
 		<SEO
-		title={title}
-		description="Brillaire is a jewelery brand."
-		canonical="https://brillaire.vercel.app/"
-		openGraph={{
-			basic: {
-				title: "Brillaire",
-				type: "website",
-				url: "https://brillaire.vercel.app/",
-				image: "/banner-metatag.png",
-			},
-			image: {
-				alt: "Banner con el logo y nombre de Brillaire",
-				width: 1200,
-				height: 630,
-			},
-			optional: {
-				description: "Brillaire is a jewelery brand."
-			}
-		}}
-		twitter={{
-			title: "Brillaire",
-			description: "Brillaire is a jewelery brand.",
-			card: "summary_large_image",
-			image: "/banner-metatag.png",
-			imageAlt: "Banner con el logo y nombre de Brillaire"
-		}}
-		extend={{
-			link: [{ rel: "icon", type:"image/x-icon", href: "/favicon.svg" }],
-			meta: [
-				{ property: "twitter:url", content: "https://brillaire.vercel.app/" },
-				{ name: "viewport", content: "width=device-width" },
-				{ name: "theme-color", content: "#fff" }
-			]
-		}}
-	/>
+			title={title}
+			description='Brillaire is a jewelery brand.'
+			canonical='https://brillaire.vercel.app/'
+			openGraph={{
+				basic: {
+					title: 'Brillaire',
+					type: 'website',
+					url: 'https://brillaire.vercel.app/',
+					image: '/banner-metatag.png',
+				},
+				image: {
+					alt: 'Banner con el logo y nombre de Brillaire',
+					width: 1200,
+					height: 630,
+				},
+				optional: {
+					description: 'Brillaire is a jewelery brand.',
+				},
+			}}
+			twitter={{
+				title: 'Brillaire',
+				description: 'Brillaire is a jewelery brand.',
+				card: 'summary_large_image',
+				image: '/banner-metatag.png',
+				imageAlt: 'Banner con el logo y nombre de Brillaire',
+			}}
+			extend={{
+				link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }],
+				meta: [
+					{ property: 'twitter:url', content: 'https://brillaire.vercel.app/' },
+					{ name: 'viewport', content: 'width=device-width' },
+					{ name: 'theme-color', content: '#fff' },
+				],
+			}}
+		/>
 	</head>
 	<body>
 		<Header />
-		<div class="wrapper">
+		<div class='wrapper'>
 			<slot />
 			<Footer />
 		</div>
 		<ElasticCustomCursor />
+		<script>
+			const LocomotiveScroll = (await import('locomotive-scroll')).default;
+
+			const locomotiveScroll = new LocomotiveScroll();
+		</script>
+
+		<style>
+			.wrapper {
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	.wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
-</style>
